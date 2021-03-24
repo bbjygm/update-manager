@@ -1,0 +1,34 @@
+<html>
+    {% extends 'template_public.html' %}
+    
+    {% block title %}
+    Login
+    {% endblock %}
+
+    {% block content %}
+    <h2 class='centered'>Login</h2>
+    
+    <p class='centered' style="color:red;">{{ error }}</p>
+    <form action='/login' method='post'>
+        <div class='centered'>
+            <label for='username'>Username:</label><br>
+            <input type='text' id='username' name='username' required autofocus>
+        </div>
+        
+        <div class='centered'>
+            <label for='password'>Password:</label><br>
+            <input type='password' id='password' name='password' autocomplete='current-password' required>
+        </div>
+        
+        <div class='centered'>
+            <input type='submit' value='Login'>
+            <div id='loader' class='centered' style='width:20px; height:20px'></div>
+            <script>
+                document.addEventListener('submit', () => {
+                    document.getElementById('loader').attributes.class.value += ' loader';
+                });
+            </script>
+        </div>
+    </form>
+    {% endblock %}
+</html>

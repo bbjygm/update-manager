@@ -1,0 +1,54 @@
+<html>
+    {% extends 'template_public.html' %}
+    
+    {% block title %}
+    Settings
+    {% endblock %}
+
+    {% block content %}
+    <style>
+        input:placeholder-shown {
+            background-color: lightgrey;
+        }
+    </style>
+
+    <h2 class='centered'>Account Settings</h2>
+    
+    <form action='/settings' method='post'>
+        <table class='centered' style='font-size:20;'>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for setting in settings %}
+                <tr>
+                    <td>{{ setting.field|e }}</td>
+                    <td>{{ setting.value|e }}</td>
+                    <td>{% if setting.edit is defined %}{{ setting.edit|e }}{% else %}N/A{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class='centered'>
+            <input type='submit' value='Save'>
+            <div id='loader' class='centered' style='width:20px; height:20px'></div>
+            <script>
+                document.addEventListener('submit', () => {
+                    document.getElementById('loader').attributes.class.value += ' loader';
+                });
+            </script>
+        </div>
+    </form>
+    <script>
+        var input = document.querySelectorAll('td input');
+        for (var i = 0; i < input.length; i++) {
+            input[i].setAttribute('size', input[i].getAttribute('placeholder').length);
+        }
+    </script>
+    {% endblock %}
+</html>

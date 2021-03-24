@@ -1,0 +1,37 @@
+<html>
+    {% extends 'template_public.html' %}
+    
+    {% block title %}
+    Player
+    {% endblock %}
+
+    {% block content %}
+    <h2 class='centered'>Player</h2>
+    
+    <div class='centered'>
+        <a href='{{ user.player_url }}'>{{ user.player_url }}</a><br>
+        <input type='button' onclick='' value='Import '>
+    </div>
+
+    <div class='shlPost'>
+
+    </div>
+    <!-- <script>
+        function loadHTML(url, fun, storage, param) {
+            var xhr = createXHR();
+            xhr.onreadystatechange = function() { 
+                if (xhr.readyState == 4) {
+                    //if(xhr.status == 200) {
+                        storage.innerHTML = getBody(xhr.responseText);
+                        fun(storage, param);
+                    // }
+                } 
+            }; 
+
+            xhr.open("GET", url , true);
+            xhr.send(null); 
+
+        } 
+    </script> -->
+    {% endblock %}
+</html>

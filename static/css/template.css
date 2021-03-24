@@ -1,0 +1,140 @@
+/* palette: https://coolors.co/36688b-f7d86a-e29552-05090c */
+/*                               blue-yellow-orange-black  */
+/* logo: https://vectr.com/bbjygm/boYKaivTb?page=2 */
+
+.logo {
+    width: 50%;
+    max-width: 500px;
+}
+
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.centered.text {
+    text-align: left;
+    font-size: 20;
+    width: 50%;
+}
+
+table.centered {
+    display: table;
+    text-align: unset;
+}
+
+ul#tableOfContents {
+    display: table;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+
+ul#tableOfContents li:not(:first-child) {
+    padding-top: 10px;
+}
+
+/* https://css-tricks.com/complete-guide-table-element/ */
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #05090c;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3490db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.menu li {
+    float: left;
+}
+
+ul.menu li:hover {
+    background-color: #111;
+}
+
+ul.menu a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.active {
+    background-color: #36688B;
+}
+
+form {
+    border: #333;
+    border-width: 2px;
+}
+
+input, label {
+    font-size: 20;
+}
+
+label[for] {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}
+
+input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+input[type=submit], input[type=button] {
+    width: unset;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+}
+
+input:focus {
+    border: 3px solid #555;
+}
+
+body {
+    font-size: 20;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

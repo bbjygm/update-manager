@@ -1,0 +1,46 @@
+<html>
+{% extends "template_public.html" %} {% block title %} Account Creation {% endblock %} {% block content %}
+<h2 class='centered'>Account Creation</h2>
+
+<form action='/create' method='post'>
+	{% if error %}
+	<script>
+		alert('****{{ error }}****');
+	</script>
+	{% endif %}
+
+	<div class='centered'>
+		<label for='username'>Username:</label>
+      <input type='text' id='username' name='username' required autofocus>
+    </div>
+
+    <div class='centered'>
+      <label for='email'>Email Address (optional):</label>
+      <input type='email' id='email' name='email' placeholder='username@domain.name'>
+    </div>
+
+    <div class='centered'>
+      <label for='password'>Password:</label>
+      <input type='password' id='password' name='password' autocomplete='current-password' required>
+    </div>
+    <div class='centered'>
+      <label for='confirm'>Confirm Password:</label>
+      <input type='password' id='confirm' name='confirm' autocomplete='current-password' required>
+    </div>
+
+    <div class='centered'>
+      <label for='player'>Player Page URL:</label>
+      <input type='url' id='player' name='player' placeholder='https://simulationhockey.com/showthread.php?tid=' pattern='^https:\/\/simulationhockey\.com\/showthread\.php\?tid=\d{1,}$' oninvalid='this.setCustomValidity("URL must be in the form: https://simulationhockey.com/showthread.php?tid={$threadID}")' oninput='this.setCustomValidity("")' required>
+    </div>
+
+    <div class='centered'>
+      <label for='updates'>Updates URL:</label>
+      <input type='url' id='updates' name='updates' placeholder='https://simulationhockey.com/showthread.php?tid=' pattern='^https:\/\/simulationhockey\.com\/showthread\.php\?tid=\d{1,}$' oninvalid='this.setCustomValidity("URL must be in the form: https://simulationhockey.com/showthread.php?tid={$threadID}")' oninput='this.setCustomValidity("")' required>
+    </div>
+
+    <div class='centered'>
+        <input type='submit' value='Create account'>
+    </div>
+  </form>
+  {% endblock %}
+</html>

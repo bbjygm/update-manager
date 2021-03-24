@@ -1,0 +1,20 @@
+<html>
+    {% extends 'template_public.html' %}
+
+    {% block title %}
+    Home
+    {% endblock %}
+
+    {% block content %}
+    <h2 class='centered'>Welcome{% if current_user and current_user.id %}, {{ current_user.id }}{% endif %}!</h2>
+    {% if not current_user or not current_user.id %}
+    <h3 class='centered'><a href='{{ url_for("login") }}'>Login</a> or <a href='{{ url_for("create") }}'>Create Account</a></h3>
+    {% else %}
+    <ul id='tableOfContents'>
+        <li><a href='{{ url_for("logout") }}'>Logout</a></li>
+        <li><a href='{{ url_for("settings") }}'>Settings</a></li>
+        <li><a href='{{ url_for("protected") }}'>Process player</a></li>
+    </ul>
+    {% endif %}
+    {% endblock %}
+</html>

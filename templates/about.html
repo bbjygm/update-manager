@@ -1,0 +1,25 @@
+<html>
+    {% extends 'template_public.html' %}
+
+    {% block title %}
+    About
+    {% endblock %}
+
+    {% block content %}
+    <h2 class='centered'>
+        About SHLUM
+    </h2>
+    <p class='centered text'>
+        My name is <a href='https://simulationhockey.com/member.php?action=profile&uid=3725'>bbjygm</a>, creator of the SHL Update Manager (SHLUM). My goal here is to create a tool to make SHL updating easier for the userbase. I have created numerous tools for myself, some of which have been focused on my own specific updating situation. My hope is that this can be generalized enough to fit anyone's situation without making your udpating process longer than it currently is.<br>
+        <br>
+        Here are some design goals that I may or may not have accomplished by the time you are reading this:
+        <ul class='centered text'>
+            <li>Guided parsing of a user's player page to get their current build</li>
+            <li>(Optional) guided parsing of a user's update thread to help audit their current state</li>
+            <li>Simple templates to apply for user updates</li>
+            <li>Template editor for personalized templates</li>
+            <li>Use updating history and claims threads to monitor unclaimed PTs</li>
+        </ul>
+    </p>
+    {% endblock %}
+</html>

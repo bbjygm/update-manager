@@ -1,0 +1,58 @@
+<html>
+
+<head>
+	<title>SHLUM - {% block title %}{% endblock %}</title>
+
+	<link rel='stylesheet' href='{{ url_for("static", filename="css/template.css") }}'>
+	<!-- <script>window.onload=()=>Particles.init({selector:'.background',color:['36688b','f7d86a','e29552','05090c']});</script> -->
+</head>
+
+<body>
+	<header>
+		<div class='container'>
+			<div class='header'>
+				<img class='logo centered' src='static/images/SHLUM.svg' alt='SHL Update Manager Logo'>
+                    <h1 class='centered'>SHLUM - SHL Update Manager</h1>
+                </div>
+                <strong><nav>
+                    <ul class='menu'>
+                        <li {% if request.url_rule.endpoint == 'index' %}class='active'{% endif %}><a href='{{ url_for("index") }}'>Home</a></li>
+                        <li {% if request.url_rule.endpoint == 'about' %}class='active'{% endif %}><a href='{{ url_for("about") }}'>About</a></li>
+                        {% if current_user and current_user.id %}
+                        <li {% if request.url_rule.endpoint == 'player' %}class='active'{% endif %}><a href='{{ url_for("player") }}'>Player</a></li>
+                        <li {% if request.url_rule.endpoint == 'updates' %}class='active'{% endif %}><a href='{{ url_for("updates") }}'>Updates</a></li>
+                        <li style='float:right;' {% if request.url_rule.endpoint == 'settings' %}class='active'{% endif %}><a href='{{ url_for("settings") }}'>{{ current_user.id }}</a></li>
+                        {% else %}
+                        <li style='float:right;' {% if request.url_rule.endpoint == 'login' %}class='active'{% endif %}><a href='{{ url_for("login") }}'>Login</a></li>
+                        {% endif %}
+                    </ul>
+                </nav></strong>
+            </div>
+        </header>
+        
+        {% block content %}
+        {% endblock %}
+        <canvas class='background' id='bg1'></canvas>
+        {#<canvas class='background' id='bg2'></canvas>#}
+        <script src='static/js/perlin_noise.js'></script>
+        {#<script src='static/js/particles.js'></script>#}
+        <script>
+            window.onload = () => {
+                perlin_noise(document.getElementById('bg1'), [[247, 216, 106], [0, 0, 0]], [0, 0.5]); {#
+                var h1 = document.querySelector('div.header>h1');
+                var height = h1.getBoundingClientRect().top;
+                var dim = Math.max(document.body.clientWidth, height);
+                var particles = Particles.init({
+                    selector: '#bg2',
+                    sizeVariations: 1,
+                    speed: 0.1,
+                    color: ['f7d86a', '05090c'],
+                    minDistance: dim*0.12,
+                    connectParticles: true
+                });
+                document.getElementById('bg2').height = height;
+                document.getElementById('bg2').style.height = height; #}
+            };
+        </script>
+    </body>
+</html>
